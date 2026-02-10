@@ -48,6 +48,34 @@ Onde:
 
 ---
 
+Com certeza! Vamos manter o padrão visual do seu `README.md` para que o repositório fique bem documentado e profissional.
+
+Aqui está o bloco para você copiar e adicionar logo abaixo da Semana 1:
+
+---
+
+## 📅 Cronograma de Estudos (Semana 2)
+
+### **Arquiteturas, Preparação de Dados e Modelos Lineares**
+
+Nesta etapa, avançamos para a organização estrutural das redes e as técnicas fundamentais de engenharia de dados.
+
+* **Arquiteturas de Rede:** Classificação em camadas (única, múltiplas camadas e redes recorrentes).
+* **Engenharia de Dados:** Metodologias de divisão (Treino, Validação e Teste), Validação Cruzada e técnicas de Normalização.
+* **Perceptron e Adaline:** Estudo dos primeiros modelos neurais e suas aplicações em problemas linearmente separáveis.
+
+O ajuste de pesos (aprendizado) do **Adaline**, baseado na Regra Delta (Mínimos Quadrados Médios), busca minimizar o erro quadrático:
+
+$$E = \frac{1}{2} \sum_{i} (d_i - u_i)^2$$
+
+Onde:
+
+* $d$: Resposta desejada (target).
+* $u$: Campo local induzido (saída linear antes da ativação).
+* $E$: Função de custo a ser minimizada.
+
+---
+
 ## 🚀 Como utilizar este repositório
 
 1. Clone o projeto: `git clone https://github.com/ViGatt/Redes-Neurais-COM510-Univesp`
