@@ -48,12 +48,6 @@ Onde:
 
 ---
 
-Com certeza! Vamos manter o padrão visual do seu `README.md` para que o repositório fique bem documentado e profissional.
-
-Aqui está o bloco para você copiar e adicionar logo abaixo da Semana 1:
-
----
-
 ## 📅 Cronograma de Estudos (Semana 2)
 
 ### **Arquiteturas, Preparação de Dados e Modelos Lineares**
