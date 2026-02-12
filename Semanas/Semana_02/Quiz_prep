@@ -1,0 +1,86 @@
+# Revisão Consolidada: Semana 02
+
+Este documento sintetiza os principais pontos técnicos abordados nos quizzes, focando em Pré-processamento, Arquiteturas e Modelos Lineares.
+
+---
+
+## 1. Pré-processamento e Qualidade dos Dados
+
+O pré-processamento é uma etapa crítica que prepara os dados brutos para serem "compreendidos" pela rede neural.
+
+### Rotinas de Pré-processamento:
+
+* **Normalização:** Equilibrar a escala dos atributos.
+* **Transformação Categórica para Numérica:** Redes neurais operam exclusivamente com números; atributos simbólicos (ex: "Sim/Não", "Cores") devem ser convertidos (ex: One-Hot Encoding).
+* **Imputação de Atributos Faltantes:** Lidar com buracos na base de dados (excluindo registros ou preenchendo-os com médias/medianas).
+* **Seleção de Atributos:** Identificar quais variáveis são realmente relevantes para o problema.
+
+### Tratamento de Classe Minoritária (Desbalanceamento):
+
+Em problemas onde uma classe ocorre raramente (ex: falhas em sensores industriais), a acurácia geral pode ser alta enquanto o desempenho na classe importante é pífio.
+
+* **Solução:** Ajustar a distribuição de classes através de **técnicas de reamostragem** (oversampling ou undersampling).
+
+---
+
+## 2. Arquiteturas e Deep Learning
+
+A forma como os neurônios se organizam dita a capacidade de abstração do modelo.
+
+### Redes Convolucionais (CNNs):
+
+* **Característica:** Utilizam **filtros locais** para extrair padrões em regiões específicas do sinal (como bordas em imagens) e replicam esses padrões através do compartilhamento de pesos.
+
+### O Ecossistema do Aprendizado Profundo:
+
+1. **Estrutura:** Composta por **múltiplas camadas**.
+2. **Aprendizado:** Ocorre de forma **progressiva**, extraindo características simples nas primeiras camadas e complexas nas últimas.
+3. **Aplicação:** Após treinada, a rede realiza a **inferência** em novos exemplos.
+
+---
+
+## 3. Modelos Lineares: Perceptron vs. Adaline
+
+Ambos são a base do aprendizado supervisionado, mas diferem no cálculo do erro e na otimização.
+
+### O Perceptron
+
+* Composto por neurônios do tipo MCP com uma camada de processadores ajustáveis.
+* **Convergência:** Se o problema for **linearmente separável**, ele sempre encontrará o hiperplano de separação.
+* **Capacidade:** Simula portas lógicas lineares (**AND, OR, NOT**).
+
+### O Adaline (*Adaptive Linear Neuron*)
+
+A grande evolução do Adaline é a introdução do **Gradiente Descendente** para otimização.
+
+| Característica | Detalhe Técnico |
+| --- | --- |
+| **Cálculo do Erro** | Ocorre **antes da função de ativação** (baseado na saída linear). |
+| **Objetivo** | Minimizar a **soma dos erros quadráticos** (MSE). |
+| **Aprendizado** | Utiliza a derivada da função de custo para ajustar os pesos. |
+
+---
+
+## 💡 Destaques para Revisão de Prova
+
+* **Atenção ao Erro:** Se a questão mencionar erro "antes da ativação", a resposta é Adaline. Se for "correção de erro após a saída discreta", é Perceptron.
+* **Atenção ao Processamento:** "Seleção de exemplos representativos" **não** é pré-processamento, é uma tarefa final do aprendizado.
+* **Atenção à Convergência:** O Perceptron falha em problemas não-lineares (como a porta XOR), mas é infalível em problemas lineares.
+
+---
+
+Para validar a **Questão 5** (Desbalanceamento), simulando o impacto de um conjunto de dados desbalanceado no seu terminal:
+
+```python
+import numpy as np
+
+# Simulação de dados: 990 normais (0) e 10 falhas (1)
+y_real = np.array([0]*990 + [1]*10)
+# Um modelo "preguiçoso" que sempre chuta 0 (normal)
+y_pred = np.zeros(1000)
+
+acuracia = (y_real == y_pred).sum() / len(y_real)
+print(f"Acurácia Geral: {acuracia*100}%") 
+# Resultado: 99%, mas ele errou TODAS as falhas críticas.
+
+```
