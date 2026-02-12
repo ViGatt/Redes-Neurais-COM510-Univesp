@@ -61,7 +61,7 @@ A grande evolução do Adaline é a introdução do **Gradiente Descendente** pa
 
 ---
 
-## 💡 Destaques para Revisão de Prova
+## Destaques para Revisão de Prova
 
 * **Atenção ao Erro:** Se a questão mencionar erro "antes da ativação", a resposta é Adaline. Se for "correção de erro após a saída discreta", é Perceptron.
 * **Atenção ao Processamento:** "Seleção de exemplos representativos" **não** é pré-processamento, é uma tarefa final do aprendizado.
