@@ -1,4 +1,4 @@
-# 📖 Aprendizado Profundo: Funcionamento e Treinamento (Mueller)
+# Aprendizado Profundo: Funcionamento e Treinamento (Mueller)
 
 Esta leitura foca em como o algoritmo deixa de ser um código estático e passa a ser uma função matemática adaptável.
 
