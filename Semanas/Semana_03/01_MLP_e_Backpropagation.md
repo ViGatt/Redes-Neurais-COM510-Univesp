@@ -11,7 +11,8 @@ Uma rede MLP padrão possui três características distintivas que a diferenciam
 
 1. **Funções de Ativação Não-Lineares:** Diferente do Perceptron (que usa a função degrau), o MLP utiliza funções não-lineares e **diferenciáveis** (como a Sigmoide ou Tangente Hiperbólica). Isso é essencial para que o algoritmo de treino funcione.
 2. **Camadas Ocultas:** Um ou mais conjuntos de neurônios que não estão em contato direto com a entrada ou a saída. Eles permitem que a rede extraia estatísticas de ordem elevada.
-3. **Alta Conectividade:** Geralmente, as redes são totalmente conectadas (*fully connected*), onde cada neurônio de uma camada se conecta a todos os neurônios da camada seguinte.
+3. **Alta Conectividade:** Geralmente, as redes são totalmente conectadas (*fully connected*), onde cada neurônio de uma camada se conecta a todos os neurônios da camada seguinte. 
+
 
 ---
 

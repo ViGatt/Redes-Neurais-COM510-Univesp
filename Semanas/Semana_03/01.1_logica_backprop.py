@@ -16,5 +16,5 @@ saida_oculta = sigmoid(np.dot(entrada, peso_oculto))
 # --- FASE BACKWARD (Conceitual) ---
 alvo = 0.8
 erro_saida = alvo - saida_final # Exemplo hipotético
-# Gradiente local depende da derivada da ativação
+# Gradiente local depende da derivada da ativação 
 delta_saida = erro_saida * sigmoid_derivative(saida_final)
