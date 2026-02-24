@@ -70,7 +70,37 @@ Onde:
 
 ---
 
-## 🚀 Como utilizar este repositório
+Para mantermos a consistência e a qualidade do seu repositório no GitHub, aqui está a estrutura formatada para a **Semana 3**. Esta semana marca um dos pontos mais importantes do curso: a transição para redes profundas e o algoritmo que permite treiná-las.
+
+Copie e cole este bloco logo abaixo do cronograma da Semana 2 no seu `README.md`:
+
+---
+
+## 📅 Cronograma de Estudos (Semana 3)
+
+### **Multilayer Perceptron (MLP) e Backpropagation**
+
+Nesta semana, superamos as limitações dos modelos lineares (como o Perceptron simples e o Adaline) introduzindo camadas ocultas e o principal algoritmo de treinamento de redes neurais artificiais.
+
+* **Arquitetura MLP:** Estrutura em múltiplas camadas (Entrada, Ocultas e Saída), tipos de neurônios e funções de ativação essenciais.
+* **O Problema Clássico do XOR:** Demonstração prática de como a rede MLP consegue resolver problemas não-linearmente separáveis, compreendendo o que cada neurônio aprende na camada oculta.
+* **Algoritmo de Retropropagação (Backpropagation):** O coração do aprendizado profundo. Derivação matemática e regra de atualização dos pesos distribuindo o erro da saída de volta para as camadas ocultas.
+
+A essência da atualização de pesos no Backpropagation baseia-se na regra da cadeia para o cálculo do gradiente local ($\delta$):
+
+$$\Delta w_{ji}(n) = \eta \cdot \delta_j(n) \cdot y_i(n)$$
+
+Onde:
+
+* $\eta$: : Taxa de aprendizagem.
+* $\delta_j$: Gradiente local do neurônio  (calculado de forma diferente para a camada de saída e para as camadas ocultas).
+* $y_i$ : Sinal de saída do neurônio  da camada anterior.
+* **Laboratório Prático:** Desenvolvimento de redes MLP padrão para problemas de **Classificação** e **Regressão**, utilizando Python e o ambiente Google Colab / Jupyter Notebooks.
+
+---
+
+
+## Como utilizar este repositório
 
 1. Clone o projeto: `git clone https://github.com/ViGatt/Redes-Neurais-COM510-Univesp`
 2. Navegue até a semana desejada em `/Semanas`.
