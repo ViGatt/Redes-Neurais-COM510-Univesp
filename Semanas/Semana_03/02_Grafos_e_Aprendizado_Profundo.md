@@ -1,6 +1,7 @@
 
 
 #  Semana 03: Redes Profundas e Grafos de Computação
+>S3 - Txt 2 – Inteligência Artificial: uma abordagem moderna (leia Capítulo 21 - Seções 21.1 e 21.4) | Stuart Russell e Peter Norvig
 
 Enquanto os modelos clássicos focam em camadas isoladas, a visão de Russell & Norvig foca na **expressividade** dos caminhos longos de computação e na automação do aprendizado.
 
