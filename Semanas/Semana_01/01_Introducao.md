@@ -42,10 +42,16 @@ As Redes Neurais Artificiais (RNAs) são simplificações do sistema nervoso.
 
 Matematicamente, o neurônio  pode ser descrito pela equação:
 
+$$
+u_j = \sum_{i=1}^{m} w_{ji} x_i + b_j \\
+y_j = \phi(u_j)
+$$
+
 Onde:
 
-* : **Campo local induzido** (potencial de ativação).
-* : **Função de Ativação** (ex: Degrau, Sigmóide, ReLU).
+* $u_j$ : **Campo local induzido** (potencial de ativação).
+
+* $\phi(\cdot)$: **Função de Ativação** (ex: Degrau, Sigmóide, ReLU).
 
 ---
 
