@@ -75,16 +75,3 @@ O algoritmo de retropropagação é executado iterativamente em duas grandes fas
 ## Checkpoint
 * **Por que usamos a derivada da função de ativação ($f'$)?** Porque é o resultado da aplicação da Regra da Cadeia para encontrar como a mudança no peso afeta a mudança no erro final. É por isso que funções como a Sigmoide e a ReLU precisam ser diferenciáveis.
 * **Qual é o "motor" das atualizações ocultas?** O somatório $\left(\sum w_{kj}\delta_k\right)$, que distribui o erro dos neurônios da frente para os neurônios de trás.
-
----
-
-### 💾 Comandos de Commit:
-Abra o terminal do VS Code e garanta que suas anotações da semana estão a salvo:
-
-```bash
-git add .
-git commit -m "Feat: adiciona notas da Videoaula 08 detalhando a matemática do Backpropagation"
-git push origin main
-```
-
-**Este é geralmente o fim do ciclo teórico de uma semana. Você quer que eu monte um "Quiz Simulado" da Semana 03 para treinar, ou há mais algum arquivo de prática ou projeto no Colab planejado para agora?**
