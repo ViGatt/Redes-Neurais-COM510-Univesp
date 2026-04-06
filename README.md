@@ -99,6 +99,17 @@ Onde:
 
 ---
 
+## 📅 Cronograma de Estudos (Semana 4)
+
+### **Otimização, Treinamento e Regularização em Redes MLP**
+
+Nesta semana, o foco sai da matemática básica da retropropagação e entra nas técnicas avançadas de engenharia de aprendizado de máquina. O objetivo é acelerar a convergência e garantir a capacidade de generalização do modelo.
+
+* **Ajuste de Hiperparâmetros:** Estratégias para definir a topologia ideal da rede (número de camadas ocultas e neurônios por camada).
+* **Algoritmos de Otimização Avançados:** Evoluções do Gradiente Descendente Estocástico (SGD), com foco no **RMSProp** e no otimizador **Adam**, que adaptam a taxa de aprendizagem dinamicamente.
+* **O Problema do Overfitting (Sobreajuste):** Como identificar quando a rede está apenas "decorando" os dados de treino e falhando em dados reais.
+* **Técnicas de Regularização:** Combate ao overfitting utilizando métodos como *Early Stopping* (Parada Antecipada), restrições de topologia e outras abordagens de penalização.
+
 
 ## Como utilizar este repositório
 
