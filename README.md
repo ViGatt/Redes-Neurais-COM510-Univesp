@@ -70,12 +70,6 @@ Onde:
 
 ---
 
-Para mantermos a consistência e a qualidade do seu repositório no GitHub, aqui está a estrutura formatada para a **Semana 3**. Esta semana marca um dos pontos mais importantes do curso: a transição para redes profundas e o algoritmo que permite treiná-las.
-
-Copie e cole este bloco logo abaixo do cronograma da Semana 2 no seu `README.md`:
-
----
-
 ## 📅 Cronograma de Estudos (Semana 3)
 
 ### **Multilayer Perceptron (MLP) e Backpropagation**
