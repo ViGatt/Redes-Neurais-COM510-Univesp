@@ -1,49 +1,51 @@
-# ✅ Semana 04: Revisão de Conceitos (Quiz e Avaliação)
+# ✅ Semana 04: Resumo Geral e Revisão de Avaliações
 
-Este documento consolida os principais conceitos testados nas atividades avaliativas da Semana 04, servindo como um guia definitivo sobre diagnóstico, topologia e otimização de Redes MLP.
+Este documento consolida a visão geral da quarta semana de estudos, juntamente com as "regras de ouro" testadas nas atividades avaliativas e a dinâmica do Exercício de Apoio.
+
+## 🌟 Visão Geral da Semana 04
+
+A Semana 04 marcou a transição da teoria matemática pura para a **Engenharia de Machine Learning** aplicada. Saímos da fase de "fazer a rede funcionar" para a fase de "fazer a rede ser eficiente e confiável no mundo real". 
+
+O aprendizado desta semana foi sustentado por três pilares fundamentais:
+
+1. **Ajuste de Topologia (A Arquitetura):** Entendemos que configurar hiperparâmetros (como o número de camadas e neurônios) é um cabo de guerra entre o viés e a variância. Redes simples demais causam *Underfitting* (subajuste), enquanto redes complexas demais causam *Overfitting* (sobreajuste).
+2. **Otimização Avançada (O Motor):** Vimos que o Gradiente Descendente Estocástico (SGD) tradicional é lento e instável. A engenharia moderna resolve isso com o treinamento em **Mini-lotes**, a adição de **Momentum** (inércia direcional) e o uso de taxas de aprendizagem adaptativas, culminando no estado da arte: o otimizador **Adam** (que funde Momentum e RMSProp).
+3. **Regularização (O Freio):** Aprendemos as ferramentas para impedir que a rede simplesmente "decore" os dados de treino. Isso inclui monitorar a rede com o conjunto de Validação (*Early Stopping*), penalizar pesos excessivamente grandes (*L1/L2 Weight Decay*), inativar neurônios aleatoriamente para forçar robustez (*Dropout*), podar conexões inúteis (*Pruning*) e gerar dados sintéticos (*Data Augmentation*).
+
+---
 
 ## 1. Diagnóstico de Modelos: Generalização, Overfitting e Underfitting
 
-A análise da curva de erro é o que guia o trabalho do engenheiro ao ajustar hiperparâmetros.
+A leitura das curvas de erro é a bússola para os ajustes da rede:
 
-* **Capacidade de Generalização:** É aferida utilizando o **conjunto de validação**. Um modelo generaliza bem quando o erro de validação atinge valores baixos e acompanha a queda do erro de treinamento. O conjunto de teste só entra no final para atestar a acurácia, nunca para guiar o treinamento.
-* **Overfitting (Sobreajuste):** Ocorre quando o modelo apresenta um desempenho excelente no treino, mas falha miseravelmente no teste/validação (decorou os dados).
-    * *Solução:* Reduzir a complexidade da rede, aplicar *Dropout* ou *Weight Decay* (L2).
-* **Underfitting (Subajuste):** Ocorre quando a rede não consegue aprender adequadamente nem os dados de treino (erro permanece alto). 
-    * *Solução:* **Aumentar a complexidade da topologia**, adicionando mais camadas e neurônios para ampliar a capacidade de representação matemática do modelo.
+* **Capacidade de Generalização:** É aferida exclusivamente utilizando o **conjunto de validação**. A generalização é garantida quando o erro de validação atinge valores baixos e aproxima-se do erro de treinamento. *Nota: O conjunto de teste (externo) não deve guiar o treinamento, ele atesta a acurácia final.*
+* **Overfitting (Sobreajuste):** Ocorre quando o modelo apresenta uma precisão excelente no treino, mas um desempenho fraco/insatisfatório no teste. A rede "memorizou" os ruídos.
+    * *Tratamento:* Aplicar técnicas de regularização (como *Weight Decay* / L2, que reduz a influência de parâmetros elevados) ou reduzir o número de camadas/neurônios.
+* **Underfitting (Subajuste):** A rede não aprende adequadamente e a precisão fica baixa em todos os conjuntos.
+    * *Tratamento:* **Aumentar a complexidade da topologia**, adicionando mais camadas ocultas e neurônios para permitir a representação de padrões mais complexos.
 
----
+## 2. Configuração de Topologia e Arquitetura
 
-## 2. Heurísticas de Topologia e Arquitetura
+O processo de definição dos hiperparâmetros não tem fórmula pronta; é um processo **empírico**, dependente dos dados e do especialista.
 
-A definição dos hiperparâmetros (número de camadas e neurônios) é um processo empírico que depende diretamente dos dados e do conhecimento prévio do desenvolvedor.
+* **A Estrutura:** Primeiramente, define-se o número de **camadas** (influencia a profundidade) e, em seguida, o número de **neurônios** em cada camada. A topologia não é alterada ao longo do *loop* de treinamento.
+* **Topologia para Classificação Geométrica:** Problemas bidimensionais não-linearmente separáveis (ex: cruzes vermelhas fechadas dentro de um triângulo) exigem unidades ocultas para criar fronteiras. Um modelo `[2 entradas; 3 neurônios ocultos; 1 saída]` é capaz de isolar o triângulo, pois seus 3 neurônios ocultos traçam as 3 retas necessárias.
+* **Poda da Rede (Pruning):** Uma técnica para minimizar redes. Começa-se com um MLP grande que tenha um bom desempenho, da qual passam a ser eliminados (ou reduzidos) pesos sinápticos de forma seletiva e ordenada.
 
-* **O Papel das Camadas:** O número de camadas dita a profundidade da rede e sua capacidade de resolver problemas complexos.
-* **O Papel dos Neurônios:** Ajustar a quantidade de neurônios dentro de cada camada ajuda a moldar a estrutura fina para lidar com a dimensionalidade do problema.
-* **Geometria da Classificação:** Para problemas bidimensionais não-linearmente separáveis (ex: uma classe dentro de um triângulo formado por outra classe), é necessário usar unidades ocultas para traçar múltiplas retas de fronteira. 
-    * *Exemplo prático:* Uma topologia `[2; 3; 1]` (2 entradas, 3 neurônios ocultos traçando 3 retas, e 1 saída julgando a união delas) ou `[2; 5; 1]` são capazes de resolver o problema.
+## 3. Otimizadores e Regularização
 
----
+* **Heurísticas para Acelerar a Convergência:**
+    1. Ajustar a taxa de aprendizagem ao longo do treinamento (decaimento).
+    2. Associar uma taxa de aprendizagem individual a cada peso.
+    3. Ampliar a taxa se o sinal da derivada se mantiver constante e reduzi-la se o sinal ficar oscilando (zigue-zague).
+* **SGD vs. Adam:** Ambos são algoritmos de primeira ordem, mas o grande diferencial é que o **Adam utiliza médias móveis** para obter uma estimativa dinâmica do *momentum* e do gradiente.
+* **O Efeito do Dropout:** Inativa um subconjunto aleatório de neurônios ocultos durante o treino. A camada posterior aprende a não depender excessivamente de nenhum neurônio específico. Possui um efeito prático de combate ao *overfitting* altamente eficaz (semelhante ao L2).
 
-## 3. Estratégias de Otimização e Aceleração
+## 4. O Exercício de Apoio (MLP no Colab)
 
-Para acelerar a convergência do algoritmo de retropropagação sem perder a estabilidade, aplicamos as seguintes heurísticas:
+No *Jupyter Notebook* explorado (`Univesp_Semana04_MLP_V2.ipynb`), toda essa teoria é materializada num problema de regressão:
 
-1. **Taxas Dinâmicas Individuais:** Associar uma taxa de aprendizagem individual para cada peso (exatamente o que algoritmos como RMSProp e Adam fazem).
-2. **Ajuste Temporal:** Alterar a taxa de aprendizagem base ao longo das épocas (Decaimento).
-3. **Leitura do Gradiente:** * Ampliar a taxa se a derivada se mantém constante (sinal de que a rede está descendo um platô longo).
-    * Reduzir a taxa se o sinal da derivada oscila/alterna (sinal de que a rede está zigue-zagueando e pulando o mínimo).
-4. **SGD vs. Adam:** Ambos são algoritmos de primeira ordem, mas a principal diferença é que o **Adam utiliza médias móveis** para obter uma estimativa dinâmica tanto do momento (inércia) quanto do gradiente (escala), tornando a convergência drasticamente mais rápida.
-* *Nota:* O número de neurônios **nunca** é alterado dinamicamente durante o loop de treinamento. A topologia é fixa após instanciada.
-
----
-
-## 4. Técnicas de Regularização
-
-Quando a rede é muito complexa, utilizamos técnicas para forçar a simplicidade e distribuir o conhecimento.
-
-* **Dropout:** Inativa um subconjunto de neurônios nas camadas ocultas de forma aleatória durante o treino. Isso impede a co-adaptação (a rede aprende a não depender excessivamente de um único neurônio) e tem um efeito prático de redução de *overfitting* muito similar à Regularização L2.
-* **Weight Decay (L2):** Penaliza os pesos grandes na função de custo, reduzindo a influência de parâmetros excessivos.
-* **Poda da Rede (Pruning):** É uma técnica de redução estrutural. Consiste em começar com uma rede MLP grande que já atingiu um desempenho adequado, e então **eliminar pesos sinápticos de forma seletiva e ordenada** (cortando conexões inúteis para melhorar a eficiência e generalização final).
-
----
+1. **Separação de Dados:** A base é dividida em Treino, Validação e Teste para permitir um fluxo metodológico correto.
+2. **Instanciação (Topologia):** Utiliza a classe `nn.Sequential` do PyTorch para empilhar camadas `Linear` intercaladas com quebras não-lineares (`Tanh`).
+3. **Métrica:** Avalia o Erro Quadrático Médio (`MSELoss`).
+4. **Desafio Prático:** O material baseia-se em alterar o otimizador padronizado pelo professor (`SGD`) para utilizar os hiperparâmetros modernos de decaimento do `Adam`, monitorando nos gráficos as perdas de Validação vs. Treino para identificar o momento exato em que o *Overfitting* começa a ocorrer.

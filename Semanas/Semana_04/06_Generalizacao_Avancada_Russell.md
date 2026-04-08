@@ -1,8 +1,5 @@
-Crie o arquivo `Semanas/Semana_04/06_Generalizacao_Avancada_Russell.md` no seu VS Code para acomodar a leitura complementar de Russell e Norvig. Abaixo estão as anotações organizadas:
-
----
-
 # 🔄 Semana 04: Estratégias Avançadas de Generalização (Russell & Norvig)
+>S4 - Texto-base 5 – Inteligência Artificial: uma abordagem moderna (Seções 21.5.3 e 21.5.4) | Stuart Russell e Peter Norvig
 
 As Seções 21.5.3 e 21.5.4 expandem a caixa de ferramentas do aprendizado profundo para além da alteração matemática da função de perda (como no L2) ou da arquitetura (como no Dropout), focando na manipulação dos dados de entrada e no reaproveitamento de conhecimento.
 
