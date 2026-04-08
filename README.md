@@ -104,6 +104,19 @@ Nesta semana, o foco sai da matemática básica da retropropagação e entra nas
 * **O Problema do Overfitting (Sobreajuste):** Como identificar quando a rede está apenas "decorando" os dados de treino e falhando em dados reais.
 * **Técnicas de Regularização:** Combate ao overfitting utilizando métodos como *Early Stopping* (Parada Antecipada), restrições de topologia e outras abordagens de penalização.
 
+---
+## 📅 Cronograma de Estudos (Semana 5)
+
+### **Redes RBF e Mapas Auto-organizáveis (SOM)**
+
+Nesta etapa, deixamos de lado apenas a retropropagação clássica para explorar redes com bases matemáticas radiais e modelos que aprendem a organizar dados sem a necessidade de um "professor" (rótulos).
+
+* **Redes RBF (Radial Basis Function):** Uma variação poderosa da MLP que utiliza funções de ativação de base radial nas camadas ocultas. Estudaremos sua arquitetura e como ela se comporta em tarefas de classificação e regressão.
+* **Redes SOM (Self-Organizing Maps):** O modelo de Kohonen. Entraremos no campo do **Aprendizado Não Supervisionado** e da **Competição**.
+* **Aprendizado Competitivo:** Compreender como neurônios "competem" para representar padrões de entrada.
+* **Clustering e Visualização:** Como utilizar mapas auto-organizáveis para agrupamento de dados e redução de dimensionalidade.
+
+
 
 ## Como utilizar este repositório
 
