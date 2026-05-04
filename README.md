@@ -115,7 +115,40 @@ Nesta etapa, deixamos de lado apenas a retropropagação clássica para explorar
 * **Redes SOM (Self-Organizing Maps):** O modelo de Kohonen. Entraremos no campo do **Aprendizado Não Supervisionado** e da **Competição**.
 * **Aprendizado Competitivo:** Compreender como neurônios "competem" para representar padrões de entrada.
 * **Clustering e Visualização:** Como utilizar mapas auto-organizáveis para agrupamento de dados e redução de dimensionalidade.
+---
 
+# ⚡ Semana 06: Máquinas Baseadas em Energia
+
+Diferente das arquiteturas *feedforward* tradicionais, as redes baseadas em energia são tratadas como **sistemas dinâmicos** (determinísticos ou estocásticos) que evoluem no tempo com o objetivo de minimizar uma função de custo denominada **Energia**.
+
+## 1. O Conceito de Energia em Redes Neurais
+*   **Lei de Evolução:** O sistema parte de uma condição inicial e evolui até atingir um estado de estabilidade.
+*   **Convergência Determinística:** A rede busca um estado de **mínima energia local**.
+*   **Convergência Estocástica:** O sistema busca uma distribuição estacionária em regiões de baixa energia (Equilíbrio Térmico).
+
+---
+
+## 2. Rede de Hopfield (Modelo Determinístico)
+A Rede de Hopfield foi um marco na década de 80, reintroduzindo o interesse científico em redes neurais através da física estatística.
+*   **Arquitetura:** Camada única de neurônios binários, totalmente conectados.
+*   **Conexões:** As ligações são **simétricas** ($w_{ij} = w_{ji}$), mas a rede não possui autorrealimentação (sem laços de um neurônio para si mesmo).
+*   **Função:** Utilizada principalmente como **Memória Associativa** endereçável por conteúdo, capaz de recuperar um padrão completo a partir de uma entrada parcial ou ruidosa.
+
+---
+
+## 3. Máquina de Boltzmann (Modelo Estocástico)
+A Máquina de Boltzmann é uma extensão estocástica da rede de Hopfield que introduz neurônios não visíveis.
+*   **Unidades Ocultas:** São adicionadas para capturar correlações de ordem superior nos dados, agindo como extratores de características.
+*   **Equilíbrio Térmico:** Por ser estocástica, a rede não para em um ponto fixo, mas flutua em uma região de baixa energia onde a probabilidade de mudança de estado se torna estacionária.
+
+---
+
+## 4. Máquina de Boltzmann Restrita (RBM)
+Uma versão simplificada e mais eficiente da máquina original, fundamental para o desenvolvimento do *Deep Learning* moderno.
+*   **Restrição:** Não há conexões entre neurônios da mesma camada (seja visível ou oculta).
+*   **Treinamento:** Utiliza o algoritmo de **Divergência Contrastiva (CD)**, que permite um ajuste de pesos muito mais rápido do que os métodos estocásticos tradicionais.
+
+---
 
 
 ## Como utilizar este repositório
