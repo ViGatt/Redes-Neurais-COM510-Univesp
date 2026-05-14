@@ -1,9 +1,3 @@
-Aqui está uma versão consolidada e aprofundada das suas anotações para a **Semana 01**. Reorganizei os tópicos integrando as definições formais do Simon Haykin com a estrutura didática da videoaula, focando no que é essencial para um estudante de Engenharia da Computação.
-
-Esta estrutura está pronta para ser copiada para o seu arquivo `Semanas/Semana_01/01_Introducao.md`.
-
----
-
 # 🧠 Semana 01: Fundamentos e o Neurônio Artificial
 
 Nesta semana, exploramos a transição do modelo biológico para o matemático e os mecanismos fundamentais que permitem às máquinas "aprenderem" através de sistemas conexionistas.
